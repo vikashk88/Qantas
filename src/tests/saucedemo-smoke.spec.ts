@@ -6,6 +6,8 @@ import { CartPage } from '../pageObject/cartPage';
 import { CheckoutPage } from '../pageObject/checkoutPage';
 import { addRandomProducts } from '../utils/helpers';
 import '../features/saucedemo/checkout.feature';
+import { WEB_CONFIG } from '../utils/config';
+import { checkoutUser } from '../utils/testData';
 
 test('End-to-End Checkout Flow using POM', { tag: ["@checkout", "@qantas"] }, async ({ page }) => {
   const loginPage = new LoginPage(page);
@@ -15,7 +17,7 @@ test('End-to-End Checkout Flow using POM', { tag: ["@checkout", "@qantas"] }, as
   const completePage = new CheckoutCompletePage(page);
 
   await loginPage.goto();
-  await loginPage.login('standard_user', 'secret_sauce');
+  await loginPage.login(WEB_CONFIG.username, WEB_CONFIG.password);
 
   const { names, total } = await addRandomProducts(page, 3);
   const count = await productsPage.getCartCount();
@@ -25,7 +27,7 @@ test('End-to-End Checkout Flow using POM', { tag: ["@checkout", "@qantas"] }, as
   await cartPage.verifyItems(names);
   await cartPage.clickCheckout();
 
-  await checkoutPage.fillDetails('Jane', 'Doe', '12345');
+await checkoutPage.fillDetails(checkoutUser.firstName, checkoutUser.lastName, checkoutUser.postalCode);
   await checkoutPage.verifyTotal(total);
   await checkoutPage.finish();
 

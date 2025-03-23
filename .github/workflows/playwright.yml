@@ -27,7 +27,11 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Tests with HTML Report
-        run: npx playwright test --reporter=html
+        run: npm run test 
+        env:
+          WEATHERBIT_API_KEY: ${{ secrets.WEATHERBIT_API_KEY }}
+          username_standard: ${{ secrets.username_standard }}
+          password_standard: ${{ secrets.password_standard }}
 
       - name: Upload Playwright HTML Report
         if: always()

@@ -7,7 +7,7 @@
     "test:single_file_run": "npx playwright test $npm_config_filepath --headed",
     "clean:report": "rm -rf ",
     "test:tags": "npx playwright test --headed --grep",
-    "test": "npx playwright test --headed",
+    "test": "npx playwright test --headed --reporter=html",
     "test:headless": "npx playwright test",
     "test:tags:headless": "npx playwright test --grep"
   },
@@ -16,6 +16,10 @@
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.51.1",
+    "@types/dotenv": "^6.1.1",
     "@types/node": "^22.13.11"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
   }
 }
