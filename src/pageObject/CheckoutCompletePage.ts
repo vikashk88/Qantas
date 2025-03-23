@@ -5,6 +5,6 @@ export class CheckoutCompletePage {
 
   async verifySuccess() {
     const text = await this.page.textContent('.complete-header');
-    expect(text).toContain('Thank you for your order');
+    expect(text).toContain('THANK YOU FOR YOUR ORDER');
   }
 }
