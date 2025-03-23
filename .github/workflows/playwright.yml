@@ -27,7 +27,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Tests with HTML Report
-        run: npm run test 
+        run: npm run test:headless 
         env:
           WEATHERBIT_API_KEY: ${{ secrets.WEATHERBIT_API_KEY }}
           username_standard: ${{ secrets.username_standard }}
