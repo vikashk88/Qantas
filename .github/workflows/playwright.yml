@@ -2,9 +2,9 @@ name: Playwright Smoke Test CI
 
 on:
   push:
-    branches: [feature/VikashKadamata-QloyalCodeTes]
+    branches: [feature/VikashKadamata-QloyalCodeTest]
   pull_request:
-    branches: [feature/VikashKadamata-QloyalCodeTes]
+    branches: [feature/VikashKadamata-QloyalCodeTest]
 
 jobs:
   test:
