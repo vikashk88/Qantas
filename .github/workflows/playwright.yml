@@ -1,35 +1,35 @@
-# GitHub Actions workflow for running Playwright tests
-name: Playwright Tests
+name: Playwright Smoke Test CI
 
 on:
   push:
-    branches: [ feature/VikashKadamata-QloyalCodeTest ]
+    branches: [feature/VikashKadamata-QloyalCodeTes]
   pull_request:
-    branches: [ feature/VikashKadamata-QloyalCodeTest ]
+    branches: [feature/VikashKadamata-QloyalCodeTes]
 
 jobs:
   test:
+    name: Run Playwright Tests
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '18'
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install Dependencies
+        run: npm ci
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests
-        run: npm run test
+      - name: Run Tests with HTML Report
+        run: npx playwright test --reporter=html
 
-      - name: Upload HTML report
+      - name: Upload Playwright HTML Report
         if: always()
         uses: actions/upload-artifact@v3
         with:
