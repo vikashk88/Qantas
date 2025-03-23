@@ -1,0 +1,21 @@
+{
+  "name": "qantas",
+  "version": "1.0.0",
+  "description": "QE Code Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test:single_file_run": "npx playwright test $npm_config_filepath --headed",
+    "clean:report": "rm -rf ",
+    "test:tags": "npx playwright test --headed --grep",
+    "test": "npx playwright test --headed",
+    "test:headless": "npx playwright test",
+    "test:tags:headless": "npx playwright test --grep"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.13.11"
+  }
+}

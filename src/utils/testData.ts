@@ -1,0 +1,5 @@
+export const checkoutUser = {
+    firstName: 'Jane',
+    lastName: 'Doe',
+    postalCode: '12345'
+  };
